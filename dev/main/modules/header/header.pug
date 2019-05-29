@@ -1,0 +1,101 @@
+mixin mainNav(data)
+    ul.nav-main&attributes(attributes)
+      each item in data
+        li.nav-main__item
+          a(href="#").nav-main__link= item.link
+            if item.subnav
+              +icon('arrow', 'nav-main__arrow-icon')
+          if item.subnav
+            ul.nav-main__subnav
+              if item.backBtn
+                li.nav-main__back
+                  button(type="button").nav-back-btn 
+                    +icon('arrow', 'nav-back-btn__icon')
+                    span.nav-back-btn__text Все категории
+              each itemSub in item.subnav
+                if itemSub.title
+                  li.nav-main__subnav-item-title.subnav-title= itemSub.title
+                li.nav-main__subnav-item
+                  a(href="#").nav-main__subnav-link= itemSub.link
+                  if itemSub.subCat
+                    ul.nav-main__subCategories
+                      if item.backBtn
+                        li.nav-main__back
+                          button(type="button").nav-back-btn 
+                            +icon('arrow', 'nav-back-btn__icon')
+                            span.nav-back-btn__text Назад
+                      li.nav-main__subCategories-title.subnav-title= itemSub.link
+                      each itemSubCat in itemSub.subCat
+                        li.nav-main__subCategories-item 
+                          a(href="#").nav-main__subCategories-link= itemSubCat
+
+mixin topLinks(data)  
+  ul.nav-sm&attributes(attributes)
+    each item in data
+      li.nav-sm__item
+        a(href="#").nav-sm__link= item    
+header.header 
+  .header__panel-nav-sm
+    .wrapper
+      p.header__suggest Звоните с 9:00 до 23:00 без выходных
+      +topLinks(["Контакты", "Цены", "О нас", "Услуги", "Наши работы", "Вопрос-ответ", "Отзывы", "Статьи", "Новости", "Наши клиенты"])(class="header__nav-sm")
+  .header__panel-main
+    .wrapper
+      img(src="static/svg/logo.svg" alt="nutella").header__logo.logo
+      .header__contacts.contacts
+        +icon('phone', 'contacts__icon')
+        ul.contacts__list
+          li.contacts__item
+            a(href="tel:0679998877").contacts__link (067) 999 88 77
+          li.contacts__item
+            a(href="tel:0508887766").contacts__link (050) 888 77 66
+          li.contacts__item
+            a(href="tel:0637776655").contacts__link (063) 777 66 55
+          li.contacts__item
+            button(type="button").contacts__btn Перезвонить мне
+  .header__panel-nav-main
+    .wrapper
+      +mainNav([
+    {
+    'link': 'Велосипеды',
+    'subnav': [{'link': 'Горные велосипеды', 'subCat': ['BerGaMont','BerGaMont']}, {'link': 'Двухподвесы', 'subCat': ['BerGaMont','BerGaMont']}]
+    },
+    {
+    'link': 'Велоаксессуары',
+    'subnav': [{'link': 'Горные велосипеды', 'subCat': ['BerGaMont','BerGaMont']}, {'link': 'Двухподвесы', 'subCat': ['BerGaMont','BerGaMont']}]
+    }
+    ])(class="header__nav-main")
+  .isMobile.mobile-nav-panel
+      button(type="button").mobile-nav-panel__close.close-btn#navCloseBtn
+        +icon('close', 'close-btn')
+      nav.mobile-nav-panel__nav-box
+        header.mobile-nav-panel__header
+          img(src="static/svg/logo.svg" alt="nutella").mobile-nav-panel__logo.logo
+        +mainNav([
+        {
+        'link': 'Велосипеды',
+        'subnav': [{'link': 'Горные велосипеды', 'title': 'Велосипеды', 'subCat': ['BerGaMont','BerGaMont']}, {'link': 'Двухподвесы', 'subCat': ['BerGaMont','BerGaMont']}],
+        'backBtn': 'true'
+        },
+        {
+        'link': 'Велоаксессуары',
+        'subnav': [{'link': 'Горные велосипеды', 'title': 'Велосипеды', 'subCat': ['BerGaMont','BerGaMont']}, {'link': 'Двухподвесы', 'subCat': ['BerGaMont','BerGaMont']}]
+        }
+        ])(class="mobile-nav-panel__nav-main")
+        .mobile-nav-panel__links-box
+          +topLinks(["О нас", "Цены", "Услуги", "Наши работы", "Вопрос-ответ"])(class="mobile-nav-panel__links")
+          +topLinks(["Отзывы", "Статьи", "Новости", "Наши клиенты", "Контакты"])(class="mobile-nav-panel__links")
+        .mobile-nav-panel__contacts.contacts
+          +icon('phone', 'contacts__icon')
+          ul.contacts__list
+            li.contacts__item
+              a(href="tel:0679998877").contacts__link (067) 999 88 77
+            li.contacts__item
+              a(href="tel:0508887766").contacts__link (050) 888 77 66
+            li.contacts__item
+              a(href="tel:0637776655").contacts__link (063) 777 66 55
+            li.contacts__item
+              button(type="button").contacts__btn Перезвонить мне
+    
+      
+          

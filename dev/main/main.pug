@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv='X-UA-Compatible' content="IE=edge")
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		meta(name="format-detection" content="telephone=no")
+		link(rel="shortcut icon" href="static/img/general/icons/map-32w.png" type="image/x-icon")
+		link(rel="apple-touch-icon" sizes="76x76" href="static/img/general/icons/map-76w.png")
+		link(rel="apple-touch-icon" sizes="120x120" href="static/img/general/icons/map-120w.png")
+		link(rel="apple-touch-icon" sizes="152x152" href="static/img/general/icons/map-152w.png")
+		link(rel="apple-touch-icon" sizes="180x180" href="static/img/general/icons/map-180w.png")
+		link(rel="stylesheet" type='text/css' href="main/css/reset.css")
+		link(rel="stylesheet" type='text/css' href="static/fonts/fonts.css") 
+		link(rel="stylesheet" type="text/css" href='static/libs/slick/slick-theme.css')
+		link(rel="stylesheet" type="text/css" href='static/libs/slick/slick.css')
+		link(rel="stylesheet" type='text/css' href="main/css/main.css")
+		
+		title
+			block title
+	body
+		//- include modules/preloader/preloader
+		include modules/header/header
+		include modules/menu/menu
+		//- include modules/button/button
+		//- include modules/title/title
+		block content
+		include modules/footer/footer
+		<!-- build:js js/libs.js-->
+			script(src="static/js/jquery.js")
+			script(src="static/libs/svg4everybody.js")
+			script(src="static/libs/slick/slick.min.js")
+		<!-- endbuild-->
+		script(src="static/js/main.js")
+
+
+		
+
+	
+		

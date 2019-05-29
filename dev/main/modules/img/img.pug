@@ -1,0 +1,4 @@
+mixin picture(img)
+picture
+	source(srcset= img.src, media= img.media)
+	img(src= img.default, alt= img.alt)

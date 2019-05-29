@@ -1,0 +1,236 @@
+.header
+  &__logo
+    width: 140px
+    height: 38px
+  &__panel-nav-sm
+    font-family: $main-font
+    background-color: $bg-color
+    & .wrapper
+      display: flex
+      align-items: center
+  &__suggest
+    font-size: 13px
+    font-weight: 700
+    margin-right: 24px
+    color: #ffed00
+  &__panel-main
+    padding: 34px 0 17px
+    background-color: $main-color-light
+    & .wrapper
+      display: flex
+      justify-content: space-between
+  &__contacts
+    width: 24%
+  &__panel-nav-main
+    background-color: $main-color-light
+.nav-sm
+  display: flex
+  font-family: $main-font
+  color: $main-color-light
+  &__link
+    display: inline-block
+    padding: 10px
+    font-size: 13px
+    font-weight: 400
+    transition: all .2s ease-in
+    &:hover
+      background-color: $accent-color
+.contacts
+  font-family: $main-font
+  display: flex
+  &__icon
+    height: 40px
+    width: 30px
+    fill: $text-color
+    margin-right: 4px
+    flex-shrink: 0
+  &__list
+    display: flex
+    flex-wrap: wrap
+    margin: -4px -12px
+  &__item
+    flex: 1 119px
+    padding: 0 12px
+    margin: 4px 0
+  &__link
+    font-size: 17px
+    color: $bg-color
+    white-space: nowrap
+    transition: color .3s ease-in
+    &:hover
+      color: $accent-color
+  &__btn
+    font-size: 14px
+    border-bottom: 1px dashed $accent-color
+    color: $accent-color
+.nav-main
+  display: flex
+  font-size: 17px
+  margin: 0 -1.18em
+  font-family: $font-bold
+  color: $text-color
+  &__item
+    &:not(:last-child)::before
+      content: ''
+      width: 1px
+      height: .8em
+      color: $text-color
+      position: absolute
+      top: 0
+      right: 0
+    @media screen and (min-width: 481px)
+      position: relative
+      z-index: 500
+      &:hover
+        & .nav-main__subnav
+          visibility: visible
+          opacity: 1
+        & .nav-main__link
+          color: $main-color-light
+          background-color: $accent-color
+  &__link
+    display: inline-block
+    padding: .85em 1.18em
+    text-transform: uppercase
+    transition: all .3s ease-in
+    position: relative
+    @media screen and (max-width: 480px)
+      display: block
+
+  &__arrow-icon
+    width: 12px
+    height: 12px
+    fill: $text-color
+    position: absolute
+    right: 10px
+    top: 50%
+    margin-top: -6px
+    display: none
+  &__subnav
+    min-width: 250px
+    font-size: 16px
+    position: absolute
+    left: 0
+    bottom: 0
+    background-color: $main-color-light
+    visibility: hidden
+    transition: all .3s
+    font-family: $main-font
+    z-index: 1000
+    @media screen and (max-width: 480px)
+      top: 0
+      width: 100%
+      transform: translateX(100%)
+      transition: all 1s
+      background-color: lighten($text-color, 70%)
+    @media screen and (min-width: 481px)
+      transform: translateY(100%)
+      opacity: 0
+      padding: .63em 0 1.1em
+  &__subnav-item
+    @media screen and (min-width: 481px)
+      position: relative
+      &:hover
+        & .nav-main__subCategories
+          visibility: visible
+          opacity: 1
+        & .nav-main__subnav-link
+          background-color: lighten($text-color, 70%)
+          color: $accent-color
+  &__subnav-link
+    display: inline-block
+    width: 100%
+    padding: .5em 1em
+    box-sizing: border-box
+    transition: all .3s ease-in
+  &__subCategories
+    min-width: 220px
+    // padding: 20px
+    box-sizing: border-box
+    position: absolute
+    top: 0
+    right: 0
+    background-color: lighten($text-color, 70%)
+    visibility: hidden
+    transition: all .3s
+    z-index: 1200
+    @media screen and (max-width: 480px)
+      top: 0
+      bottom: 0
+      width: 100%
+      transform: translateX(100%)
+      transition: all 1s
+    @media screen and (min-width: 481px)
+      transform: translateY(100%)
+      opacity: 0
+      padding: .63em 0 1.1em
+  &__subCategories-item
+    padding: 0 1em
+  &__subCategories-link
+    display: inline-block
+    padding: .3em 0
+    border-bottom: 1px solid transparent
+    transition: all .3s ease-in
+    &:hover
+      border-bottom-color: $text-color
+.subnav-open
+  transform: translateX(0)
+  visibility: visible
+.subnav-title
+  font-size: 14px
+  padding: 1em
+  text-transform: uppercase
+  font-family: $font-bold
+.nav-back-btn
+  padding: 1em
+  width: 100%
+  box-sizing: border-box
+  text-align: left
+  background-color: $main-color-light
+  &__icon
+    width: 10px
+    height: 10px
+    margin-right: 10px
+    fill: $text-color
+    transform: rotate(180deg)
+.isMobile
+  // display: none
+.mobile-nav-panel
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 5000
+  background-color: rgba(0, 0, 0, .8)
+  &__nav-box
+    width: 284px
+    height: 100%
+    padding: 16px 22px 24px
+    box-sizing: border-box
+    background-color: $main-color-light
+    position: relative
+    overflow: hidden
+  &__header
+    margin-bottom: 16px
+  &__logo
+    width: 100px
+  &__nav-main
+    display: block
+    margin-bottom: 24px
+  &__links-box
+    display: flex
+    margin-bottom: 40px
+  &__links
+    display: block
+    color: $text-color
+  &__contacts
+    text-align: center
+    & .contacts__icon
+      display: none
+    & .contacts__item:not(:last-child)
+      margin-bottom: 12px
+    & .contacts__btn
+      margin-top: 16px
+  & .nav-main__arrow-icon
+    display: inline-block
