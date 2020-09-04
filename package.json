@@ -38,7 +38,7 @@
     "smart-grid": "^2.0.1"
   },
   "dependencies": {
-    "handlebars": "^4.0.11",
+    "handlebars": "^4.5.3",
     "jquery-mask-plugin": "^1.14.13",
     "jquery-touchswipe": "^1.6.18"
   }
